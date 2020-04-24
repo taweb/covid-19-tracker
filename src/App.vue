@@ -1,11 +1,11 @@
 <template>
   <div id="app" class="relative">
-    <Nav />
     <div v-if="loading" class="mask">
       <div class="loader rounded shadow-lg p-6 bg-white flex items-center justify-center">
         <p>Loading...</p>
       </div>
     </div>
+    <Nav />
     <main class="py-24 px-6 max-w-screen-xl mx-auto">
       <router-view :key="$route.fullPath"/>
     </main>

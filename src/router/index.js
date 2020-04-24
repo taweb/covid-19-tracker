@@ -56,8 +56,6 @@ const router = new VueRouter({
 
 router.beforeEach((to, from, next) => {
   store.dispatch('setLoading', true)
-  console.log('loading');
-  
   next()
 })
 router.afterEach(() => {
