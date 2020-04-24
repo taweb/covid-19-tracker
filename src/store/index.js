@@ -31,23 +31,23 @@ export default new Vuex.Store({
             label: 'Country'
           },
           {
-            type: 'TotalConfirmed',
-            label: 'Confirmed Cases'
-          },
-          {
             type: 'TotalDeaths',
             label: 'Total Deaths'
+          },
+          {
+            type: 'TotalConfirmed',
+            label: 'Confirmed Cases'
           }
         ]         
       },
       current: {
         field: {
-          type: 'Slug',
-          label: 'Country'
+          type: 'TotalDeaths',
+          label: 'Total Deaths'
         },
         direction: {
-          type: 'asc',
-          label: 'Ascending'
+          type: 'desc',
+          label: 'Descending'
         }
       }
     }
