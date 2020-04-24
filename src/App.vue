@@ -1,32 +1,49 @@
 <template>
-  <div id="app">
-    <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
+  <div id="app" class="relative">
+    <Nav />
+    <div v-if="loading" class="mask">
+      <div class="loader rounded shadow-lg p-6 bg-white flex items-center justify-center">
+        <p>Loading...</p>
+      </div>
     </div>
-    <router-view/>
+    <main class="py-24 px-6 max-w-screen-xl mx-auto">
+      <router-view :key="$route.fullPath"/>
+    </main>
+    <Footer />
   </div>
 </template>
 
+<script>
+import Nav from '@/components/Nav.vue'
+import Footer from '@/components/Footer.vue'
+
+import { mapState } from 'vuex'
+export default {
+  name: 'App',
+  components: {
+    Nav,
+    Footer
+  },
+  computed: {
+    ...mapState(['loading'])
+  },
+}
+</script>
+
+
 <style lang="scss">
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-}
-
-#nav {
-  padding: 30px;
-
-  a {
-    font-weight: bold;
-    color: #2c3e50;
-
-    &.router-link-exact-active {
-      color: #42b983;
-    }
+  .mask {
+    position: fixed;
+    height: 100vh;
+    width: 100vw;
+    background-color: rgba(200, 200, 200, 0.5);
   }
-}
+  .loader {
+    position: fixed;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 200px;
+    height: 100px;
+  }
 </style>
