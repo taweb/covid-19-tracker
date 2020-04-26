@@ -1,6 +1,6 @@
 <template>
     <div v-if="svgPath">
-        <img class="rounded-md w-16 h-12 shadow-md" :src="svgPath" alt="flag">
+        <img class="rounded-md w-16 h-12 shadow-md" :src="svgPath" alt="flag" loading="lazy">
     </div>
 </template>
 
