@@ -4,7 +4,7 @@
     <p class="text-lg mb-2">Sort Results</p>
     <div class="flex">
       <div class="block w-1/2 lg:w-1/4 lg:max-w-xs mr-2">
-        <label for="field" class="block mb-1">Statistic:</label>
+        <label for="field" class="block mb-1">By:</label>
         <select id="field" @change="updateSort($event, 'field')" class="block h-8 shadow-md w-full">
           <option 
             v-for="(option, index) in sortBy.options.fields"
